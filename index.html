@@ -1,1 +1,435 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Groomers - Cat Grooming Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .menu-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24, #feca57, #48ca80, #0abde3, #6c5ce7);
+            background-size: 300% 300%;
+            animation: rainbow 8s ease infinite;
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .header::before {
+            content: '🐱';
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            border-bottom: 3px solid #dee2e6;
+        }
+        
+        .contact-info a {
+            color: #6c5ce7;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .hair-section {
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            border-left: 5px solid #6c5ce7;
+        }
+        
+        .hair-section h2 {
+            color: #2d3436;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hair-section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, #6c5ce7, #a29bfe);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .service-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .service-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+        
+        .service-details {
+            flex-grow: 1;
+        }
+        
+        .service-name {
+            font-weight: 600;
+            color: #2d3436;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .service-duration {
+            color: #636e72;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
+        .service-price {
+            font-weight: bold;
+            color: #6c5ce7;
+            font-size: 1.2rem;
+            white-space: nowrap;
+            margin-left: 20px;
+        }
+        
+        .specialty-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .specialty-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .specialty-section p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .notes {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+        
+        .notes h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .notes ul {
+            list-style: none;
+            color: #856404;
+        }
+        
+        .notes li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        .notes li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #f39c12;
+            font-size: 1.2rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #2d3436;
+            color: white;
+        }
+        
+        .footer p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .social-links {
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            color: #74b9ff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .service-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-price {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            .contact-info a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <div class="header">
+            <h1>Rainbow Groomers</h1>
+            <div class="tagline">Professional Cat Grooming Services</div>
+        </div>
+        
+        <div class="contact-info">
+            <a href="https://rainbowgroomers.com">rainbowgroomers.com</a>
+            <a href="https://www.facebook.com/share/14H225JWXEr/">Facebook</a>
+            <a href="https://www.instagram.com/rainbowgroomers">Instagram</a>
+        </div>
+        
+        <div class="content">
+            <div class="hair-section">
+                <h2>Short Haired Cats</h2>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Brush Out with Dry Bath</div>
+                            <div class="service-duration">Includes nail trim, ear cleaning & sanitary trim</div>
+                        </div>
+                        <div class="service-price">$85 - $95</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Brush Out with Wet Bath</div>
+                            <div class="service-duration">Includes nail trim, ear cleaning & sanitary trim</div>
+                        </div>
+                        <div class="service-price">$100 - $110</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Haircut with Dry Bath</div>
+                            <div class="service-duration">Includes nail trim, ear cleaning & sanitary trim</div>
+                        </div>
+                        <div class="service-price">$95 - $105</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Haircut with Wet Bath</div>
+                            <div class="service-duration">Includes nail trim, ear cleaning & sanitary trim</div>
+                        </div>
+                        <div class="service-price">$120 - $130</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Comfort Haircut</div>
+                            <div class="service-duration">Basic comfort trim</div>
+                        </div>
+                        <div class="service-price">$43</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Complete Hygiene Package</div>
+                            <div class="service-duration">60 minutes • Full hygiene service</div>
+                        </div>
+                        <div class="service-price">$170</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hair-section">
+                <h2>Long Haired Cats</h2>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Brush Out with Dry Bath</div>
+                            <div class="service-duration">Includes nail trim, ear cleaning & sanitary trim</div>
+                        </div>
+                        <div class="service-price">$85 - $95</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Brush Out with Wet Bath</div>
+                            <div class="service-duration">Includes nail trim, ear cleaning & sanitary trim</div>
+                        </div>
+                        <div class="service-price">$100 - $110</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Haircut with Dry Bath</div>
+                            <div class="service-duration">Includes nail trim, ear cleaning & sanitary trim</div>
+                        </div>
+                        <div class="service-price">$95 - $105</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Haircut with Wet Bath</div>
+                            <div class="service-duration">Includes nail trim, ear cleaning & sanitary trim</div>
+                        </div>
+                        <div class="service-price">$120 - $130</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Comfort Haircut</div>
+                            <div class="service-duration">Basic comfort trim</div>
+                        </div>
+                        <div class="service-price">$43</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Complete Hygiene Package</div>
+                            <div class="service-duration">60 minutes • Full hygiene service</div>
+                        </div>
+                        <div class="service-price">$170</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hair-section">
+                <h2>Additional Services</h2>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Nail Trim Only</div>
+                            <div class="service-duration">15 minutes</div>
+                        </div>
+                        <div class="service-price">$37</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Nail Caps (Front Paws)</div>
+                            <div class="service-duration">20 minutes</div>
+                        </div>
+                        <div class="service-price">$50</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-details">
+                            <div class="service-name">Nail Caps (Back Paws)</div>
+                            <div class="service-duration">20 minutes</div>
+                        </div>
+                        <div class="service-price">$50</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="specialty-section">
+                <h3>Specialty Grooming Available</h3>
+                <p>We offer spot shaving and specialty patterns including lion trims! Ask about custom styling options for your feline friend.</p>
+            </div>
+            
+            <div class="notes">
+                <h3>Important Information</h3>
+                <ul>
+                    <li>All pricing depends on matting level and cat temperament</li>
+                    <li>All full services include nail trim, ear cleaning, and sanitary trim</li>
+                    <li>We specialize in stress-free grooming techniques</li>
+                    <li>Book online or call for appointment scheduling</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Sara Claxton • Lead Groomer</p>
+            <div class="social-links">
+                <a href="https://rainbowgroomers.com">Website</a>
+                <a href="https://www.facebook.com/share/14H225JWXEr/">Facebook</a>
+                <a href="https://www.instagram.com/rainbowgroomers">Instagram</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
